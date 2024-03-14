@@ -21,7 +21,9 @@ public class CitiesController {
      * @return: ResponseEntity with PaginatedResponseDto as its body
      */
 
-    @CrossOrigin(origins = "http://localhost:63342")
+    /*This annotation should only be uncommented when running frontend and backend applications in the same server,
+    and for testing purposes only. NEVER DEPLOY IN HIGHER ENVIRONMENTS*/
+    //@CrossOrigin(origins = "http://localhost:63342")
     @GetMapping(value = "/queryByPage", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PaginatedResponseDto> queryCitiesByPage(@RequestParam int page, @RequestParam int size) {
         PaginatedResponseDto response = cityService.findCitiesInAlphabeticalOrderAscendant(page, size);
@@ -33,7 +35,9 @@ public class CitiesController {
      * @return ResponseEntity with body containing the most permutable city and all its permutations
      */
 
-    @CrossOrigin(origins = "http://localhost:63342")
+    /*This annotation should only be uncommented when running frontend and backend applications in the same server,
+    and for testing purposes only. NEVER DEPLOY IN HIGHER ENVIRONMENTS*/
+    //@CrossOrigin(origins = "http://localhost:63342")
     @GetMapping(value = "/mostPermutableCity", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PermutableCityResponseDto> findMostPermutableCity() {
         PermutableCityResponseDto response = cityService.findMostPermutableCity();
