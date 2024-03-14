@@ -6,10 +6,7 @@ import com.eurovision.sandbox.cities.dto.PermutableCityResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/cities")
@@ -23,6 +20,8 @@ public class CitiesController {
      * @param size The number of elements per page
      * @return: ResponseEntity with PaginatedResponseDto as its body
      */
+
+    @CrossOrigin(origins = "http://localhost:63342")
     @GetMapping(value = "/queryByPage", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PaginatedResponseDto> queryCitiesByPage(@RequestParam int page, @RequestParam int size) {
         PaginatedResponseDto response = cityService.findCitiesInAlphabeticalOrderAscendant(page, size);
@@ -33,6 +32,8 @@ public class CitiesController {
      * Endpoint for exercise b of the test
      * @return ResponseEntity with body containing the most permutable city and all its permutations
      */
+
+    @CrossOrigin(origins = "http://localhost:63342")
     @GetMapping(value = "/mostPermutableCity", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PermutableCityResponseDto> findMostPermutableCity() {
         PermutableCityResponseDto response = cityService.findMostPermutableCity();

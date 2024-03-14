@@ -1,0 +1,15 @@
+.container{
+
+    margin: auto;
+    padding-top: 15%;
+    width: fit-content;
+    height: fit-content;
+    align-content: center;
+    align-self: center;
+    align-items: center;
+
+}
+
+.button{
+    width: fit-content;
+}
