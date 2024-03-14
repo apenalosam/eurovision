@@ -88,7 +88,7 @@ public class CityServiceImpl implements CityService {
             throw BadRequestException.of("Page must be at least one", "Pagination should start at 1");
         }
 
-        if (size < 0) {
+        if (size < 1) {
             log.error("Page size validation failed: Size was less than 1");
             throw BadRequestException.of("Size must be greater than zero", "Query must show at least one element");
         }
